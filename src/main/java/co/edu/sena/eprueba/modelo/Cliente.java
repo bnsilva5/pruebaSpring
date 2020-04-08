@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "Cliente")
+@Table(name = "cliente")
 public class Cliente {
 	
 	@Id
@@ -16,30 +16,35 @@ public class Cliente {
 	
 	@NotNull
 	@Size(max= 50)
-	@Column(name = "environment_number", length = 50, nullable = false)
+	@Column(name = "nombre_cliente", length = 50, nullable = false)
 	private String nombreCli;
 	
 	@NotNull
 	@Size(max= 50)
+	@Column(name = "apellido_cliente", length = 50, nullable = false)
 	private String apellidoCli;
 	
 	@NotNull
 	@Size(max= 50)
+	@Column(name = "documento_cliente", length = 50, nullable = false)
 	private int documentoCli;
 	
 	@NotNull
 	@Size(max= 100)
+	@Column(name = "direccion_cliente", length = 100, nullable = false)
 	private String direccionCli;
 	
 	@NotNull
 	@Size(max= 30)
+	@Column(name = "telefono_cliente", length = 31, nullable = false)
 	private int telefonoCli;
 	
 	@NotNull
 	@Size(max= 100)
+	@Column(name = "email_cliente", length = 100, nullable = false)
 	private String emailCli;
 	
-	@OneToMany(mappedBy = "Cliente")
+	@OneToMany(mappedBy = "cliente")
 	private Set<Reserva> reservas;
 	
 	

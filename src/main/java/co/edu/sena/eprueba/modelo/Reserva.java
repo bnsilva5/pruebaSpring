@@ -3,6 +3,8 @@ package co.edu.sena.eprueba.modelo;
 import java.util.Date;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Reserva")
@@ -11,25 +13,39 @@ public class Reserva {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idRes;
+	
+	@NotNull
+	@Column(name = "fecha_ingreso_reserva")
 	private Date fechaIngresoRes;
+	
+	@NotNull
+	@Column(name = "fecha_salida_reserva")
 	private Date fechaSalidaRes;
+	
+	@NotNull
+	@Size(max= 50)
+	@Column(name = "cantida_personas_reservas", length = 50)
 	private int cantidadPersonasRes;
+	
+	@NotNull
+	@Size(max= 100)
+	@Column(name = "nombre_cliente", length = 100, nullable = false)
 	private String descripcionRes;
 	
+	@ManyToOne
+	@JoinColumn(name = "idCli")
 	private Cliente cliente;
 	
 	public Reserva() {
 		
 	}
 	
-	public Reserva(Long idRes) {
+	public Reserva(Long idRes, Date fechaIngresoRes, Date fechaSalidaRes, int cantidadPersonasRes, String descripcionRes) {
 		this.idRes = idRes;
-	}
-	
-	public Reserva(Date fechaIngresoRes, Date fechaSalidaRes, int cantidadPersonasRes) {
 		this.fechaIngresoRes = fechaIngresoRes;
 		this.fechaSalidaRes = fechaSalidaRes;
 		this.cantidadPersonasRes = cantidadPersonasRes;
+		this.descripcionRes = descripcionRes;
 	}
 
 	public Long getIdRes() {

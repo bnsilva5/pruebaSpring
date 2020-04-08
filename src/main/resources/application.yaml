@@ -1,0 +1,11 @@
+spring:
+  datasource:
+      url: jdbc:postgresql://database-1.cjulme5nlmf1.us-east-1.rds.amazonaws.com:5432/prueba
+      username: postgres
+      password: 1234567822
+      driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+      generate-ddl: true
+    show-sql: true

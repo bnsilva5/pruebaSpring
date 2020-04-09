@@ -13,4 +13,8 @@ public interface ReservaRepository extends JpaRepository <Reserva, Long> {
 
 	@Query("select r from Reserva r where r.fechaIngresoRes  =: fechaInicio and r.fechaSalidaRes =: fechaSalida")
 	public List<Reserva> find(@Param("fechaIngresoRes") Date fechaIngresoRes, @Param("fechaSalidaRes") Date fechaSalidaRes);
+	
+	public Reserva findByIdRes(Long idRes);
+	
+	public Reserva findByCantidadPersonasRes(int cantidadPersonasRes);
 }

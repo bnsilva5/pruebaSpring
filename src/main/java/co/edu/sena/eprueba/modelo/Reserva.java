@@ -31,7 +31,7 @@ public class Reserva {
 	
 	@NotNull
 	@Size(max= 100)
-	@Column(name = "nombre_cliente", length = 100, nullable = false)
+	@Column(name = "descripcion_cliente", length = 100, nullable = false)
 	private String descripcionRes;
 	
 	@ManyToOne

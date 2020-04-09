@@ -8,6 +8,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "cliente")
+@NamedQuery(name="Cliente.findByDocumentoCli", query="select c from Cliente c where c.documentoCli = ?1")
 public class Cliente {
 	
 	@Id

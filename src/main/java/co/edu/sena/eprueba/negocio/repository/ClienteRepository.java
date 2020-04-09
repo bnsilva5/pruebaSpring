@@ -10,6 +10,6 @@ public interface ClienteRepository extends JpaRepository <Cliente, Long> {
 	
 	List<Cliente> findByNombreCli(String nombreCli);
 	
-	public Cliente findByDocumentCli(String documentCli);
+	public Cliente findByDocumentoCli(String documentoCli);
 
 }

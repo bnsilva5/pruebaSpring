@@ -16,10 +16,12 @@ public class Reserva {
 	
 	@NotNull
 	@Column(name = "fecha_ingreso_reserva")
+	@Temporal(TemporalType.DATE)
 	private Date fechaIngresoRes;
 	
 	@NotNull
 	@Column(name = "fecha_salida_reserva")
+	@Temporal(TemporalType.DATE)
 	private Date fechaSalidaRes;
 	
 	@NotNull

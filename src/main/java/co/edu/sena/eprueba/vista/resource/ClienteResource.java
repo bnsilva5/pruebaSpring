@@ -11,7 +11,7 @@ import co.edu.sena.eprueba.negocio.services.ClienteService;
 import co.edu.sena.eprueba.vista.resources.DTO.ClienteDTO;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/cliente")
 public class ClienteResource {
 
 	private final ClienteService clienteService;

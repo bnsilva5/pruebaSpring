@@ -23,7 +23,7 @@ public class ClienteService {
 	 * Metodo para realizar la operacion de guardar un cliente
 	 */
 	@Transactional
-	public Cliente save(Cliente cliente) {
+	public Cliente create(Cliente cliente) {
 		return this.clienteRepository.save(cliente);
 	}
 	

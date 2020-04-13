@@ -1,5 +1,7 @@
 package co.edu.sena.eprueba.negocio.services;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -57,5 +59,13 @@ public class ReservaService {
 	 */
 	public Reserva findByCantidadPersonasRes(int cantidadPersonasRes) {
 		return this.reservaRepository.findByCantidadPersonasRes(cantidadPersonasRes);
+	}
+	
+	
+	/*
+	 * Metodo para consultar todas las reservas
+	 */
+	public List<Reserva> findAll() {
+		return this.reservaRepository.findAll();
 	}
 }

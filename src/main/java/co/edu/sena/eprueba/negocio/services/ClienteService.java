@@ -49,7 +49,7 @@ public class ClienteService {
 	/*
 	 * Metodo para consultar por el documento del cliente
 	 */
-	public Cliente findByDocumentCli(String documentoCli) {
+	public Cliente findByDocumentCli(int documentoCli) {
 		return this.clienteRepository.findByDocumentoCli(documentoCli);
 	}
 	
@@ -59,5 +59,13 @@ public class ClienteService {
 	 */
 	public List<Cliente> findByNombreCli(String nombreCli) {
 		return this.clienteRepository.findByNombreCli(nombreCli);
+	}
+	
+	
+	/*
+	 * Metodo para consultar todos los clientes
+	 */
+	public List<Cliente> findAll() {
+		return this.clienteRepository.findAll();
 	}
 }

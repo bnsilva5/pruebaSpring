@@ -9,9 +9,14 @@ import org.springframework.web.bind.annotation.*;
 import co.edu.sena.eprueba.modelo.Cliente;
 import co.edu.sena.eprueba.negocio.services.ClienteService;
 import co.edu.sena.eprueba.vista.resources.DTO.ClienteDTO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiResponse;
 
 @RestController
 @RequestMapping("/api/cliente")
+@Api(tags = "cliente")
 public class ClienteResource {
 
 	private final ClienteService clienteService;
@@ -22,6 +27,9 @@ public class ClienteResource {
 	}
 	
 	@PostMapping
+	@ApiOperation(value = "Crear Cliente", notes = "Servicio para crear un cliente")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Cliente creado correctamente"),
+			@ApiResponse(code = 400, message = "Solicitud Invalida") })
 	public ResponseEntity<Cliente> createCliente(@RequestBody ClienteDTO clienteDto){
 		Cliente cliente = new Cliente();
 		
@@ -36,6 +44,9 @@ public class ClienteResource {
 
 	
 	@PutMapping("/{documentoCli}")
+	@ApiOperation(value = "Actualizar Cliente", notes = "Servicio para actualizar un cliente")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Cliente actualizado correctamente"),
+			@ApiResponse(code = 400, message = "Cliente no actualizado") })
 	public ResponseEntity<Cliente> updateCliente(@PathVariable("documentoCli") int documentoCli, ClienteDTO clienteDto) {
 		
 		Cliente cliente = this.clienteService.findByDocumentCli(documentoCli);
@@ -57,6 +68,9 @@ public class ClienteResource {
 	
 	
 	@DeleteMapping("/{documentoCli}")
+	@ApiOperation(value = "Eliminar Cliente", notes = "Servicio para eliminar un cliente")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Cliente eliminado correctamente"),
+			@ApiResponse(code = 400, message = "cliente no eliminado") })
 	public void removeCliente(@PathVariable("documentoCli") int documentoCli, ClienteDTO clienteDto) {
 		Cliente cliente = this.clienteService.findByDocumentCli(documentoCli);
 		if(cliente != null) {
@@ -66,6 +80,9 @@ public class ClienteResource {
 	
 	
 	@GetMapping
+	@ApiOperation(value = "Listar Clientes", notes = "Servicio para listar todos los clientes")
+	@ApiResponses(value = { @ApiResponse(code = 201, message = "Clientes encontrados"),
+			@ApiResponse(code = 400, message = "Clientes no encontrados") })
 	public ResponseEntity<List<Cliente>> findAll() {
 		return ResponseEntity.ok(this.clienteService.findAll());
 	}
